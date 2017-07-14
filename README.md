@@ -1,0 +1,1 @@
+# sonar-css-report-plugin
