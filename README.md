@@ -28,7 +28,7 @@ mvn clean package
 ## Report Format
 
 The structure for every kind of report is the same:
-```json
+```
 {
   "files": [
     "path": "<absolute path to source file>",
@@ -40,7 +40,7 @@ The structure for every kind of report is the same:
 ### The Different Objects used for `"<data>"`
 
 `Stylelint` and `doiuse`:
-```json
+```
 "issues": [
   {
     "line": number,
@@ -52,7 +52,7 @@ The structure for every kind of report is the same:
 ```
 
 `cssstats`:
-```json
+```
 "stats": {
   "size": number,
   "gzipSize": number,
