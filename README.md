@@ -131,6 +131,7 @@ To create the different reports we use a custom `node.js` script.
 ## Configuration
 
 The following options can be configured through the SonarQube UI:
+
 | Key | Type | Default | Description |
 |--|--|--|--|
 |`sonar.css.report.doiuse.enabled` | `boolean` | `false` | Are `doiuse` reports processed. |
@@ -139,7 +140,7 @@ The following options can be configured through the SonarQube UI:
 |`sonar.css.report.stylelint.enabled` | `boolean` | `false` | Are `Stylelint` reports processed. |
 |`sonar.css.report.stylelint.report.path` | `String` | `/target/css-reports/stylelint.json` | The location of the report |
 |`sonar.css.report.stylelint.rule.path` | `String` | | An optional path for custom rule definitions |
-| `sonar.css.report.cssstats.enabled` | `boolean` |`false` |Are `cssstats` report processed. |
+| `sonar.css.report.cssstats.enabled` | `boolean` |`false` | Are `cssstats` report processed. |
 |`sonar.css.report.cssstats.report.path` | `String` | `/target/css-reports/cssstats.json` | The location of the report |
 
 ## Metrics
