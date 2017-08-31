@@ -27,7 +27,7 @@ public class CssReportPlugin implements Plugin {
             .addExtension(CssStatsMetrics.class)
             .addExtension(CssStatsSensor.class)
             .addExtension(ListConcatenationAggregator.class)
-            .addExtension(ComputeFileMetrics.class)
+            .addExtension(SyntheticMeasureComputer.class)
             .addExtension(SumAggregator.class)
             .addExtension(UniqueAggregator.class)
             .addExtension(MergeMapAggregator.class)

@@ -17,6 +17,7 @@
 *.zip
 *.tar.gz
 *.rar
+*.js.map
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
@@ -26,6 +27,7 @@ hs_err_pid*
 *.iml
 
 .tern-project
+.tern-port
 src/main/frontend/build
 src/main/frontend/node_modules
 target/

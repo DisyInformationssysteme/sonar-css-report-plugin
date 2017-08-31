@@ -13,9 +13,9 @@ import java.io.IOException;
 import java.util.*;
 
 //TODO rename class
-public class ComputeFileMetrics implements MeasureComputer {
+public class SyntheticMeasureComputer implements MeasureComputer {
     private final static ObjectMapper mapper = new ObjectMapper();
-    private final static Logger log = Loggers.get(ComputeFileMetrics.class);
+    private final static Logger log = Loggers.get(SyntheticMeasureComputer.class);
     @Override
     public MeasureComputerDefinition define(MeasureComputerDefinitionContext measureComputerDefinitionContext) {
         return measureComputerDefinitionContext.newDefinitionBuilder()
