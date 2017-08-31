@@ -2,6 +2,7 @@ package net.disy.sonarplugins.cssreport.cssstats;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.type.CollectionType;
+import net.disy.sonarplugins.cssreport.Mapper;
 import net.disy.sonarplugins.cssreport.cssstats.report.CssMediaQuery;
 import net.disy.sonarplugins.cssreport.cssstats.report.CssProperty;
 import org.sonar.api.ce.measure.Component;

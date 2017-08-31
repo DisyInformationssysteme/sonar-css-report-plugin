@@ -1,8 +1,8 @@
 package net.disy.sonarplugins.cssreport.cssstats;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jodd.csselly.CSSelly;
 import jodd.csselly.CssSelector;
+import net.disy.sonarplugins.cssreport.Mapper;
 import org.sonar.api.ce.measure.Component;
 import org.sonar.api.ce.measure.Measure;
 import org.sonar.api.ce.measure.MeasureComputer;
@@ -12,9 +12,7 @@ import org.sonar.api.utils.log.Loggers;
 import java.io.IOException;
 import java.util.*;
 
-//TODO rename class
 public class SyntheticMeasureComputer implements MeasureComputer {
-    private final static ObjectMapper mapper = new ObjectMapper();
     private final static Logger log = Loggers.get(SyntheticMeasureComputer.class);
     @Override
     public MeasureComputerDefinition define(MeasureComputerDefinitionContext measureComputerDefinitionContext) {
@@ -75,7 +73,7 @@ public class SyntheticMeasureComputer implements MeasureComputer {
             return;
         }
         try {
-            String[] deserialized = mapper.readValue(values.getStringValue(), String[].class);
+            String[] deserialized = Mapper.mapper.readValue(values.getStringValue(), String[].class);
             if (deserialized.length == 0) {
                 return;
             }
@@ -90,8 +88,8 @@ public class SyntheticMeasureComputer implements MeasureComputer {
                 selectorCount.add(parsed.size());
             }
             if (ctx.getComponent().getType() == Component.Type.FILE) {
-                ctx.addMeasure(CssStatsMetrics.SELECTORS_KEY_SELECTORS.getKey(), mapper.writeValueAsString(keySelectors));
-                ctx.addMeasure(CssStatsMetrics.SELECTORS_IDENTIFIERS_PER.getKey(), mapper.writeValueAsString(selectorCount));
+                ctx.addMeasure(CssStatsMetrics.SELECTORS_KEY_SELECTORS.getKey(), Mapper.mapper.writeValueAsString(keySelectors));
+                ctx.addMeasure(CssStatsMetrics.SELECTORS_IDENTIFIERS_PER.getKey(), Mapper.mapper.writeValueAsString(selectorCount));
             } else {
                 MergeMapAggregator.mergeStringIntMap(ctx, CssStatsMetrics.SELECTORS_KEY_SELECTORS.getKey());
                 ListConcatenationAggregator.concatList(ctx, CssStatsMetrics.SELECTORS_IDENTIFIERS_PER.getKey(), Integer.class);
@@ -111,7 +109,7 @@ public class SyntheticMeasureComputer implements MeasureComputer {
             return;
         }
         try {
-            List<Integer> values = Arrays.asList(mapper.readValue(ruleSizes.getStringValue(), Integer[].class));
+            List<Integer> values = Arrays.asList(Mapper.mapper.readValue(ruleSizes.getStringValue(), Integer[].class));
             computeAvgStddev(ctx,
                     values,
                     CssStatsMetrics.RULE_SIZE_AVG.getKey(),
@@ -127,7 +125,7 @@ public class SyntheticMeasureComputer implements MeasureComputer {
             return;
         }
         try {
-            List<Integer> values = Arrays.asList(mapper.readValue(specificities.getStringValue(), Integer[].class));
+            List<Integer> values = Arrays.asList(Mapper.mapper.readValue(specificities.getStringValue(), Integer[].class));
             computeAvgStddev(ctx,
                     values,
                     CssStatsMetrics.SPECIFICITY_AVG.getKey(),

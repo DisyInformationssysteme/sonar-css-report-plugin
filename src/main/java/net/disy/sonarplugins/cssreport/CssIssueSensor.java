@@ -1,7 +1,5 @@
 package net.disy.sonarplugins.cssreport;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import net.disy.sonarplugins.cssreport.doiuse.DoiuseReportSensor;
 import org.sonar.api.batch.fs.FileSystem;
 import org.sonar.api.batch.fs.InputFile;
@@ -54,12 +52,10 @@ public class CssIssueSensor {
                 .stream()
                 .map(rule -> rule.ruleKey().rule())
                 .collect(Collectors.toSet());
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         FileSystem fileSystem = sensorContext.fileSystem();
         IssueReport report;
         try {
-            report = mapper.readValue(new File(fileSystem.baseDir() + reportPath), IssueReport.class);
+            report = Mapper.mapper.readValue(new File(fileSystem.baseDir() + reportPath), IssueReport.class);
         } catch (IOException e) {
             log.error("error while parsing report {}", e);
             return;

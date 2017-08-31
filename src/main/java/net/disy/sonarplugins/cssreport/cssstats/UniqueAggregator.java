@@ -1,5 +1,6 @@
 package net.disy.sonarplugins.cssreport.cssstats;
 
+import net.disy.sonarplugins.cssreport.Mapper;
 import org.sonar.api.ce.measure.Component;
 import org.sonar.api.ce.measure.Measure;
 import org.sonar.api.ce.measure.MeasureComputer;

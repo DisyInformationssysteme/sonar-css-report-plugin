@@ -1,9 +1,9 @@
 package net.disy.sonarplugins.cssreport.cssstats;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import net.disy.sonarplugins.cssreport.CssLanguage;
+import net.disy.sonarplugins.cssreport.Mapper;
 import net.disy.sonarplugins.cssreport.cssstats.report.FileStatsReport;
 import net.disy.sonarplugins.cssreport.cssstats.report.Stats;
 import net.disy.sonarplugins.cssreport.cssstats.report.StatsReport;
@@ -47,18 +47,16 @@ public class CssStatsSensor  implements Sensor {
             return;
         }
         FileSystem fileSystem = sensorContext.fileSystem();
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         StatsReport report;
         try {
-            report = mapper.readValue(new File(fileSystem.baseDir() + reportPath), StatsReport.class);
+            report = Mapper.mapper.readValue(new File(fileSystem.baseDir() + reportPath), StatsReport.class);
         } catch (IOException e) {
             log.error("error while parsing report {}", e);
             return;
         }
         for (FileStatsReport fileReport : report.getFiles()) {
             InputFile inputFile = fileSystem.inputFile(fileSystem.predicates().hasAbsolutePath(fileReport.getPath()));
-            saveMetrics(inputFile, fileReport.getStats(), sensorContext, mapper);
+            saveMetrics(inputFile, fileReport.getStats(), sensorContext, Mapper.mapper);
         }
     }
 

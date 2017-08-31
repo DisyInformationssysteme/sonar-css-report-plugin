@@ -5,10 +5,6 @@ import org.sonar.api.batch.sensor.Sensor;
 import org.sonar.api.batch.sensor.SensorContext;
 import org.sonar.api.batch.sensor.SensorDescriptor;
 import org.sonar.api.config.Settings;
-import org.sonar.api.measures.Metric;
-
-import java.io.Serializable;
-import java.util.HashMap;
 
 public class StyleLintReportSensor implements Sensor {
     private final CssIssueSensor sensor;

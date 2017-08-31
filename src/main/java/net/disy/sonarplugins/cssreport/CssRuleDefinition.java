@@ -1,8 +1,6 @@
 package net.disy.sonarplugins.cssreport;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.sonar.api.batch.rule.Rules;
 import org.sonar.api.config.Settings;
 import org.sonar.api.rule.RuleStatus;
 import org.sonar.api.rules.Rule;
@@ -35,10 +33,8 @@ public class CssRuleDefinition {
         NewRepository newRepository = context.createRepository(constants.getRepositoryName(), CssLanguage.LANGUAGE_KEY)
                 .setName("Css IssueReport " + constants.getToolName());
         createDefaultUnknownRule(newRepository);
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        createDefaultRules(newRepository, mapper);
-        createCustomRules(newRepository, mapper);
+        createDefaultRules(newRepository, Mapper.mapper);
+        createCustomRules(newRepository, Mapper.mapper);
         newRepository.done();
     }
 
