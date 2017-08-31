@@ -8,7 +8,6 @@ public class SumAggregator implements MeasureComputer{
     private static String[] metrics = {
             CssStatsMetrics.TOTAL_RULES.getSonarMetric().getKey(),
             CssStatsMetrics.FILE_SIZE.getSonarMetric().getKey(),
-            CssStatsMetrics.GZIP_SIZE.getSonarMetric().getKey(),
             CssStatsMetrics.SELECTOR_TOTAL.getSonarMetric().getKey(),
             CssStatsMetrics.SELECTOR_ID.getSonarMetric().getKey(),
             CssStatsMetrics.DECL_TOTAL.getSonarMetric().getKey(),
