@@ -100,7 +100,7 @@ function addSpecificityGraphUi(values, container) {
             tooltips: {
                 callbacks: {
                     label: function(tooltipItem, chart) {
-                        return [ 
+                        return [
                             `Specificity: ${tooltipItem.yLabel}`,
                             `Selector: ${values[tooltipItem.index].selector}`
                             ];
@@ -154,15 +154,15 @@ function addDeclarationsResetsUi(values, container) {
 function addMediaQueriesUi(values, container) {
     $(container).append($(`<ul>${values.map(v => `<li>${v}</li>`).join('')}`));
 }
-    
+
 class Page {
-    
+
     constructor(el, componentKey) {
         this.el = el;
         this.componentKey = componentKey;
         this.api = new Api(componentKey);
     }
-    
+
     init() {
         this.tree = document.createElement('div');
         this.el.classList = [ 'flex-container' ];
@@ -177,8 +177,8 @@ class Page {
                 jtree.on('select_node.jstree', () => this.update());
                 jtree.on('loaded.jstree', () => this.update());
             });
-    } 
-    
+    }
+
     changeCurrentTab(newTab) {
         $('ul.css-tabs li').removeClass('css-current');
         $('.css-tab-content').removeClass('css-current');
@@ -187,7 +187,7 @@ class Page {
         $('#' + id).addClass('css-current');
         this.update();
     }
-    
+
     update() {
         const selected = $(this.tree).jstree().get_selected(true);
         const metricGroup = $('.css-tab-link.css-current').attr('data-tab');
@@ -195,7 +195,7 @@ class Page {
         this.api.getMeasure(this.api.createMeasureOptions(selected[0].original.key, metricGroups[metricGroup]))
             .then(result => this.renderMetrics(result, container));
     }
-    
+
     renderMetrics(data, container) {
         container.empty();
         const measureCompare = function (a, b) {
@@ -203,7 +203,7 @@ class Page {
                 return -1;
             } else if (a.metric > b.metric) {
                 return 1;
-            } 
+            }
             return 0;
         };
         for (let measure of data.component.measures.sort(measureCompare)) {
@@ -216,7 +216,7 @@ class Page {
             addUiForMeasure(measure, childContainer);
         }
     }
-    
+
     createTabs() {
         const $container = $('<div class="css-container">');
         const $tabs = $('<ul class="css-tabs">');
@@ -248,9 +248,8 @@ function toJsTreeJson(sonarJson) {
     const dirs = [];
     const files = [];
     for (let component of sonarJson.components) {
-        let parentId;
         if (component.qualifier === 'DIR') {
-            dirs.push({ 
+            dirs.push({
                 id: component.id,
                 parent: root.id,
                 text: component.name,
@@ -267,7 +266,7 @@ function toJsTreeJson(sonarJson) {
             });
         }
     }
-    return [ root ].concat(dirs).concat(files); 
+    return [ root ].concat(dirs).concat(files);
 }
 
 class Api {
@@ -282,18 +281,18 @@ class Api {
     prefix(route) {
         return '/api/' + route;
     }
-    
+
     getProjectTree() {
         return window.SonarRequest
             .getJSON(this.prefix(this.routes.COMPONENTS_TREE), { component: this.componentKey, s: 'path' })
             .then(result => toJsTreeJson(result));
     }
-    
+
     getMeasure(options) {
         return window.SonarRequest
             .getJSON(this.prefix(this.routes.MEASURE), options);
     }
-    
+
     createMeasureOptions(componentKey, metricKeys) {
         return {
             componentKey,
@@ -308,10 +307,9 @@ class PropertyView {
         this.data = data;
         this.container = container;
         this.properties = {};
-        this.currentProperty = '';
         this.dataTableInitialized = false;
     }
-    
+
     transformData() {
         for (let property of Object.keys(this.data)) {
             const values = this.data[property];
@@ -326,7 +324,7 @@ class PropertyView {
             this.properties[property] = dict;
         }
     }
-    
+
     initialiseView() {
         this.$search = $('<input type="text" placeholder="search"/>');
         this.$search.on('input', e => this.searchEntered(e.target.value));
@@ -336,16 +334,16 @@ class PropertyView {
         const chooserTableContainer = $('<div>');
         chooserTableContainer.addClass('flex-container')
             .append([
-                $('<div>').addClass('flex-container vertical').append([ this.$search, this.$list ]), 
-                this.$table 
+                $('<div>').addClass('flex-container vertical').append([ this.$search, this.$list ]),
+                this.$table
             ]);
         $(this.container).append(chooserTableContainer);
     }
-    
+
     createItem(property, index) {
         return `<option>${property}</option>`;
     }
-    
+
     selected() {
         const selected = this.$list.children('option:selected');
         if (selected.length === 0) {
@@ -378,16 +376,16 @@ class PropertyView {
             this.dataTableInitialized = true;
         }
     }
-    
+
     clickedItem(property) {
         console.log(property);
     }
-    
+
     searchEntered(searchTerm) {
         this.$list.children().each(function(){
             const notMatched = $(this).text().indexOf(searchTerm) === -1;
             $(this).toggleClass('hidden', notMatched);
         });
     }
-    
+
 }
