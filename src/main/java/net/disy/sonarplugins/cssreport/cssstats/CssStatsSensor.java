@@ -51,7 +51,7 @@ public class CssStatsSensor  implements Sensor {
         try {
             report = Mapper.mapper.readValue(new File(fileSystem.baseDir() + reportPath), StatsReport.class);
         } catch (IOException e) {
-            log.error("error while parsing report {}", e);
+            log.error("error while parsing report", e);
             return;
         }
         for (FileStatsReport fileReport : report.getFiles()) {

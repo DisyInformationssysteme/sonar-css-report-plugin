@@ -57,7 +57,7 @@ public class CssIssueSensor {
         try {
             report = Mapper.mapper.readValue(new File(fileSystem.baseDir() + reportPath), IssueReport.class);
         } catch (IOException e) {
-            log.error("error while parsing report {}", e);
+            log.error("error while parsing report", e);
             return;
         }
         for (FileIssueReport fileReport : report.getFiles()) {
