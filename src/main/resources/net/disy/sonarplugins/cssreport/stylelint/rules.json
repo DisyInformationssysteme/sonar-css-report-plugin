@@ -1,0 +1,218 @@
+[
+  {
+    "key": "at-rule-empty-line-before"
+  },
+  {
+    "key": "at-rule-name-case"
+  },
+  {
+    "key": "at-rule-name-space-after"
+  },
+  {
+    "key": "at-rule-semicolon-newline-after"
+  },
+  {
+    "key": "block-closing-brace-empty-line-before"
+  },
+  {
+    "key": "block-closing-brace-newline-after"
+  },
+  {
+    "key": "block-closing-brace-newline-before"
+  },
+  {
+    "key": "block-closing-brace-space-before"
+  },
+  {
+    "key": "block-opening-brace-newline-after"
+  },
+  {
+    "key": "block-opening-brace-space-after"
+  },
+  {
+    "key": "block-opening-brace-space-before"
+  },
+  {
+    "key": "color-hex-case"
+  },
+  {
+    "key": "color-hex-length"
+  },
+  {
+    "key": "comment-empty-line-before"
+  },
+  {
+    "key": "comment-whitespace-inside"
+  },
+  {
+    "key": "custom-property-empty-line-before"
+  },
+  {
+    "key": "declaration-bang-space-after"
+  },
+  {
+    "key": "declaration-bang-space-before"
+  },
+  {
+    "key": "declaration-block-semicolon-newline-after"
+  },
+  {
+    "key": "declaration-block-semicolon-space-after"
+  },
+  {
+    "key": "declaration-block-semicolon-space-before"
+  },
+  {
+    "key": "declaration-block-single-line-max-declarations"
+  },
+  {
+    "key": "declaration-block-trailing-semicolon"
+  },
+  {
+    "key": "declaration-colon-newline-after"
+  },
+  {
+    "key": "declaration-colon-space-after"
+  },
+  {
+    "key": "declaration-colon-space-before"
+  },
+  {
+    "key": "declaration-empty-line-before"
+  },
+  {
+    "key": "function-comma-newline-after"
+  },
+  {
+    "key": "function-comma-space-after"
+  },
+  {
+    "key": "function-comma-space-before"
+  },
+  {
+    "key": "function-max-empty-lines"
+  },
+  {
+    "key": "function-name-case"
+  },
+  {
+    "key": "function-parentheses-newline-inside"
+  },
+  {
+    "key": "function-parentheses-space-inside"
+  },
+  {
+    "key": "function-whitespace-after"
+  },
+  {
+    "key": "indentation"
+  },
+  {
+    "key": "length-zero-no-unit"
+  },
+  {
+    "key": "max-empty-lines"
+  },
+  {
+    "key": "media-feature-colon-space-after"
+  },
+  {
+    "key": "media-feature-colon-space-before"
+  },
+  {
+    "key": "media-feature-name-case"
+  },
+  {
+    "key": "media-feature-parentheses-space-inside"
+  },
+  {
+    "key": "media-feature-range-operator-space-after"
+  },
+  {
+    "key": "media-feature-range-operator-space-before"
+  },
+  {
+    "key": "media-query-list-comma-newline-after"
+  },
+  {
+    "key": "media-query-list-comma-space-after"
+  },
+  {
+    "key": "media-query-list-comma-space-before"
+  },
+  {
+    "key": "no-eol-whitespace"
+  },
+  {
+    "key": "no-missing-end-of-source-newline"
+  },
+  {
+    "key": "number-leading-zero"
+  },
+  {
+    "key": "number-no-trailing-zeros"
+  },
+  {
+    "key": "property-case"
+  },
+  {
+    "key": "rule-empty-line-before"
+  },
+  {
+    "key": "selector-attribute-brackets-space-inside"
+  },
+  {
+    "key": "selector-attribute-operator-space-after"
+  },
+  {
+    "key": "selector-attribute-operator-space-before"
+  },
+  {
+    "key": "selector-combinator-space-after"
+  },
+  {
+    "key": "selector-combinator-space-before"
+  },
+  {
+    "key": "selector-descendant-combinator-no-non-space"
+  },
+  {
+    "key": "selector-list-comma-newline-after"
+  },
+  {
+    "key": "selector-list-comma-space-before"
+  },
+  {
+    "key": "selector-max-empty-lines"
+  },
+  {
+    "key": "selector-pseudo-class-case"
+  },
+  {
+    "key": "selector-pseudo-class-parentheses-space-inside"
+  },
+  {
+    "key": "selector-pseudo-element-case"
+  },
+  {
+    "key": "selector-pseudo-element-colon-notation"
+  },
+  {
+    "key": "selector-type-case"
+  },
+  {
+    "key": "unit-case"
+  },
+  {
+    "key": "value-list-comma-newline-after"
+  },
+  {
+    "key": "value-list-comma-space-after"
+  },
+  {
+    "key": "value-list-comma-space-before"
+  },
+  {
+    "key": "value-list-max-empty-lines"
+  }
+]
